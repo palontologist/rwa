@@ -1,0 +1,101 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Farmer {
+  id          String   @id @default(cuid())
+  phone       String?  @unique
+  coopId      String?
+  coop        Coop?    @relation(fields: [coopId], references: [id])
+  srtScore    Int      @default(0)
+  dvcBalance  Decimal  @default(0)
+  dvcStaked   Decimal  @default(0)
+  psBalance   Decimal  @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+}
+
+model Coop {
+  id         String     @id @default(cuid())
+  name       String
+  farmers    Farmer[]
+  deliveries Delivery[]
+  seasons    Season[]
+}
+
+model Buyer {
+  id    String @id @default(cuid())
+  name  String
+}
+
+model Delivery {
+  id          String          @id @default(cuid())
+  farmerId    String
+  farmer      Farmer          @relation(fields: [farmerId], references: [id])
+  coopId      String
+  coop        Coop            @relation(fields: [coopId], references: [id])
+  kg          Decimal
+  grade       String
+  timestamp   DateTime
+  acceptedKg  Decimal?
+  settledId   String?
+  status      DeliveryStatus  @default(PENDING)
+  settlement  Settlement?
+}
+
+enum DeliveryStatus {
+  PENDING
+  ACCEPTED
+  SETTLED
+  DISPUTED
+}
+
+model Settlement {
+  id          String   @id @default(cuid())
+  deliveryId  String   @unique
+  delivery    Delivery @relation(fields: [deliveryId], references: [id])
+  buyerId     String
+  buyer       Buyer    @relation(fields: [buyerId], references: [id])
+  amount      Decimal
+  timestamp   DateTime
+}
+
+model Epoch {
+  id         String   @id @default(cuid())
+  label      String   @unique
+  feePool    Decimal  @default(0)
+  opsAmount  Decimal  @default(0)
+  dvcRewards Decimal  @default(0)
+  poolAmount Decimal  @default(0)
+  closed     Boolean  @default(false)
+  createdAt  DateTime @default(now())
+  closedAt   DateTime?
+}
+
+model Reward {
+  id        String   @id @default(cuid())
+  epochId   String
+  epoch     Epoch    @relation(fields: [epochId], references: [id])
+  farmerId  String
+  farmer    Farmer   @relation(fields: [farmerId], references: [id])
+  dvcReward Decimal  @default(0)
+  psReward  Decimal  @default(0)
+}
+
+model Season {
+  id                 String   @id @default(cuid())
+  coopId             String
+  coop               Coop     @relation(fields: [coopId], references: [id])
+  label              String
+  grossReceipts      Decimal
+  facilityPrincipal  Decimal
+  facilityInterest   Decimal
+  opsCosts           Decimal
+  createdAt          DateTime @default(now())
+}
+
