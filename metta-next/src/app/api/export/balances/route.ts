@@ -1,10 +1,11 @@
 import { NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+import { db } from "@/db/client";
+import { farmers } from "@/db/schema";
 
 export async function GET() {
-  const farmers = await prisma.farmer.findMany();
+  const rowsDb = await db.select().from(farmers);
   const header = "farmerId,srtScore,dvcBalance,dvcStaked,psBalance";
-  const rows = farmers.map(f => [f.id, f.srtScore, f.dvcBalance, f.dvcStaked, f.psBalance].join(","));
+  const rows = rowsDb.map(f => [f.id, f.srtScore, f.dvcBalance, f.dvcStaked, f.psBalance].join(","));
   const csv = [header, ...rows].join("\n");
   return new NextResponse(csv, { headers: { "content-type": "text/csv" }});
 }

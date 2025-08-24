@@ -1,9 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
-import { prisma } from "@/lib/prisma";
+import { db } from "@/db/client";
+import { deliveries } from "@/db/schema";
 
 export async function POST(req: NextRequest) {
   const { id, farmerId, coopId, kg, grade, timestamp } = await req.json();
-  await prisma.delivery.create({ data: { id, farmerId, coopId, kg, grade, timestamp: new Date(timestamp), status: "PENDING" }});
+  await db.insert(deliveries).values({ id, farmerId, coopId, kg, grade, timestamp: new Date(timestamp).getTime(), status: "PENDING" });
   return NextResponse.json({ ok: true });
 }
 
