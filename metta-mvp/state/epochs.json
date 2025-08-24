@@ -1,0 +1,24 @@
+{
+  "1c818389-d4dc-4678-9913-a6fa1ef35eac": {
+    "id": "1c818389-d4dc-4678-9913-a6fa1ef35eac",
+    "label": "epoch_1",
+    "fee_pool": 10000.0,
+    "ops_amount": 4000.0,
+    "dvc_rewards": 3000.0,
+    "pool_amount": 3000.0,
+    "closed": true,
+    "created_at": "2025-08-24T22:35:55.158783",
+    "closed_at": "2025-08-24T22:35:55.316205"
+  },
+  "b670b904-29ec-435a-9230-04fb0ca20f9c": {
+    "id": "b670b904-29ec-435a-9230-04fb0ca20f9c",
+    "label": "epoch_2",
+    "fee_pool": 10000.0,
+    "ops_amount": 4000.0,
+    "dvc_rewards": 3000.0,
+    "pool_amount": 3000.0,
+    "closed": true,
+    "created_at": "2025-08-24T22:36:57.678052",
+    "closed_at": "2025-08-24T22:36:57.836987"
+  }
+}
