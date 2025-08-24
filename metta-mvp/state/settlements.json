@@ -1,0 +1,16 @@
+{
+  "1c0fc9e7-ba70-4272-ac5b-82042f67597f": {
+    "id": "1c0fc9e7-ba70-4272-ac5b-82042f67597f",
+    "delivery_id": "d2",
+    "buyer_id": "b1",
+    "amount": 36000.0,
+    "timestamp": "2025-08-11T15:00:00Z"
+  },
+  "fc7fbb2e-29ec-4c5d-9d7e-c95beae4bfe3": {
+    "id": "fc7fbb2e-29ec-4c5d-9d7e-c95beae4bfe3",
+    "delivery_id": "d3",
+    "buyer_id": "b1",
+    "amount": 30000.0,
+    "timestamp": "2025-08-12T10:00:00Z"
+  }
+}

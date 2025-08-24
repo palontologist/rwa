@@ -1,0 +1,22 @@
+{
+  "d2": {
+    "id": "d2",
+    "farmer_id": "f2",
+    "coop_id": "c1",
+    "kg": 150.0,
+    "grade": "G2",
+    "timestamp": "2025-08-02T09:00:00Z",
+    "accepted_kg": 148.0,
+    "status": "SETTLED"
+  },
+  "d3": {
+    "id": "d3",
+    "farmer_id": "f3",
+    "coop_id": "c1",
+    "kg": 120.0,
+    "grade": "G3",
+    "timestamp": "2025-08-03T09:30:00Z",
+    "accepted_kg": 119.0,
+    "status": "SETTLED"
+  }
+}

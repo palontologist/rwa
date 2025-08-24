@@ -1,0 +1,26 @@
+{
+  "f1": {
+    "id": "f1",
+    "coop_id": "c1",
+    "srt_score": 0.0,
+    "dvc_balance": 0.0,
+    "dvc_staked": 0.0,
+    "ps_balance": 0.0
+  },
+  "f2": {
+    "id": "f2",
+    "coop_id": "c1",
+    "srt_score": 4.4399999999999995,
+    "dvc_balance": 3001.84,
+    "dvc_staked": 10.0,
+    "ps_balance": 3000.0
+  },
+  "f3": {
+    "id": "f3",
+    "coop_id": "c1",
+    "srt_score": 1.19,
+    "dvc_balance": 7.14,
+    "dvc_staked": 0.0,
+    "ps_balance": 0.0
+  }
+}
