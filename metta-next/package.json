@@ -7,12 +7,19 @@
     "build": "next build --turbopack",
     "start": "next start",
     "lint": "biome check",
-    "format": "biome format --write"
+    "format": "biome format --write",
+    "db:generate": "drizzle-kit generate",
+    "db:push": "drizzle-kit push",
+    "seed": "ts-node --compiler-options '{\"module\":\"CommonJS\"}' src/db/seed.ts"
   },
   "dependencies": {
+    "next": "15.5.0",
     "react": "19.1.0",
     "react-dom": "19.1.0",
-    "next": "15.5.0"
+    "@libsql/client": "^0.11.0",
+    "drizzle-orm": "^0.32.1",
+    "decimal.js": "^10.4.3",
+    "zod": "^3.23.8"
   },
   "devDependencies": {
     "typescript": "^5",
@@ -21,6 +28,8 @@
     "@types/react-dom": "^19",
     "@tailwindcss/postcss": "^4",
     "tailwindcss": "^4",
-    "@biomejs/biome": "2.2.0"
+    "@biomejs/biome": "2.2.0",
+    "drizzle-kit": "^0.24.0",
+    "ts-node": "^10.9.2"
   }
 }
