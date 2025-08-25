@@ -39,3 +39,16 @@ High‑level roadmap
 - Staking cooldowns/vesting and timestamp guards
 - Nightly/weekly epoch close jobs; charts and audit exports
 - Ledger adapters to mirror on‑chain later
+
+MeTTa (https://metta-lang.dev/) mapping in this Next.js project
+
+- Facts → Tables: Farmers, Coops, Buyers, Deliveries, Settlements, Epochs, Rewards
+- Predicates → Queries + guards:
+  - VerifiedEventSet(d): Deliveries.status == "SETTLED" and acceptedKg != null
+- Rules → Pure services (TypeScript):
+  - DVC mint: BaseDVCPerKg × QualityMultiplier(grade) × acceptedKg
+  - SRT update: srtDelta(grade, kg)
+  - Rewards: FeePool × split → pro‑rata to stakers; PS with optional SRT multiplier
+- Side effects → API routes: DB writes only; ledger adapters can be added later
+
+Optional: export current DB state as MeTTa facts (facts.metta) via `npm run metta:export`.
