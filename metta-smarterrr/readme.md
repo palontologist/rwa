@@ -14,10 +14,7 @@ Model
 - BusySlot: day, start_ts, end_ts
 - ScheduleEntry: task_id, start_ts, end_ts
 
-Install
-cd metta-smarter
-python3 -m venv .venv
-source .venv/bin/activate
+
 pip install -r requirements.txt
 
 Quick start
@@ -35,3 +32,25 @@ How it works
 - Scoring: score = 2*priority + 1/(deadline-now)
 - Placement: greedy earliest fit in free slots
 - Errors: cycle/no-ready or no-fit
+
+metta-smarter (MeTTa-based scheduler)
+
+- Tasks as MeTTa facts; EDF + priority scoring; greedy packing into free slots.
+- Dependencies respected; deadlines prioritized; dynamic: re-run after changes.
+
+Quick start
+1) python3 -m venv .venv && source .venv/bin/activate
+2) pip install -r metta-smarter/requirements.txt
+3) python metta-smarter/cli.py run
+
+Edit tasks
+- Update metta-smarter/tasks.metta (add (task ...), (duration ...), (priority ...), (deadline ...), (depends ...)).
+- Re-run: python metta-smarter/cli.py run
+
+Roasts
+- LLM roast via MeTTa-Motto (chat-gpt-agent) with mild|medium|hot spice.
+- Requires `motto` and your LLM key (e.g., OPENAI_API_KEY or OPENROUTER_API_KEY).
+
+Notes
+- Custom atoms (timems!, //) from python_ext.py are auto-registered.
+- Output shows (assign T start end) rows for the chosen day (e.g., d1).
