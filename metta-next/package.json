@@ -10,7 +10,8 @@
     "format": "biome format --write",
     "db:generate": "drizzle-kit generate",
     "db:push": "drizzle-kit push",
-    "seed": "ts-node --compiler-options '{\"module\":\"CommonJS\"}' src/db/seed.ts"
+    "seed": "ts-node --compiler-options '{\"module\":\"CommonJS\"}' src/db/seed.ts",
+    "metta:export": "ts-node --compiler-options '{\"module\":\"CommonJS\"}' src/metta/exportFacts.ts"
   },
   "dependencies": {
     "next": "15.5.0",

@@ -1,4 +1,6 @@
 node_modules
+<<<<<<< HEAD
+=======
 .next
 .venv
 dist
@@ -12,3 +14,4 @@ metta-mvp/out/
 metta-mvp/.venv/
 metta-mvp/.pytest_cache/
 metta-next/prisma/dev.db*
+>>>>>>> d48d414b32e3cd643ff62d3a33ffa4f24931532a
